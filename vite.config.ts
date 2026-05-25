@@ -6,7 +6,19 @@ import { tanstackStart } from "@tanstack/react-start/plugin/vite";
 import { cloudflare } from "@cloudflare/vite-plugin";
 
 export default defineConfig({
-  plugins: [tanstackStart(), react(), tailwindcss(), tsconfigPaths(), cloudflare()],
+  base: "/kuberachari-s-retirement-invitation-webssite/",
+  plugins: [
+    tanstackStart({
+      prerender: {
+        enabled: true,
+        crawlLinks: true
+      }
+    }),
+    react(),
+    tailwindcss(),
+    tsconfigPaths(),
+    cloudflare()
+  ],
   optimizeDeps: {
     exclude: [
       "@tanstack/start-server-core",
